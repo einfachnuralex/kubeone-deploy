@@ -1,0 +1,14 @@
+apiVersion: kubeone.io/v1alpha1
+kind: KubeOneCluster
+name: {{ env['CLUSTER_NAME']}}
+versions:
+  kubernetes: {{ env['K8S_VERSION']}}
+cloudProvider:
+  name: 'openstack'
+  cloudConfig: |
+    [Global]
+    username={{ env['OS_USERNAME']}}
+    password="{{ env['OS_PASSWORD']}}"
+    auth-url={{ env['OS_AUTH_URL']}}
+    tenant-id={{ env['OS_TENANT_ID']}}
+    domain-id={{ env['OS_DOMAIN_NAME']}}
